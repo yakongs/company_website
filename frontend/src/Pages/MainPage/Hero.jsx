@@ -4,7 +4,7 @@ import GameImage from "../../assets/BouncyBistro.jpg";
 const Hero = () => {
   return (
     <div className="relative min-h-[110vh] bg-gradient-to-b from-gray-50 to-white pb-0">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-44">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="flex-1 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl 2xl:text-7xl font-bold text-gray-900 leading-tight mb-6 lg:mb-12">
@@ -14,7 +14,7 @@ const Hero = () => {
                 tiny cafe into the most popular spot in town.
               </span>
             </h1>
-            {/*<p className="text-lg sm:text-xl text-gray-800 text-semibold mb-8 max-w-2xl mx-auto">
+            {/*<p className="text-lg sm:text-xl text-gray-800 font-semibold mb-8 max-w-2xl mx-auto">
               Available on Steam!
             </p>*/}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -30,6 +30,7 @@ const Hero = () => {
             <div className="relative">
               <img
                 src={GameImage}
+                alt="Bouncy Bistro game key art"
                 className="relative rounded-2xl shadow-2xl w-full object-cover transform hover:scale-[1.02] transition-transform duration-300"
               />
             </div>
@@ -37,7 +38,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {[
             { number: "500K+", label: "Players Worldwide" },

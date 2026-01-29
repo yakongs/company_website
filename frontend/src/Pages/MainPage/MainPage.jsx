@@ -1,13 +1,13 @@
 import React from "react";
 import Hero from "./Hero";
-import Forum from "./Forum";
+import Careers from "./Careers";
 import Contact from "./Contact";
 
 const MainPage = () => {
   return (
     <div>
       <Hero />
-      <Forum />
+      <Careers />
       <Contact />
     </div>
   );
