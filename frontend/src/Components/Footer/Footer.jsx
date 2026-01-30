@@ -91,7 +91,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact & Support</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Soso Factory Inc.</li>
+              <li>SOSO Factory Inc.</li>
               <li>777 Jelly Pop Road, Floor 2</li>
               <li>Toronto, ON M3M 3B3</li>
               <li>Canada</li>
@@ -142,7 +142,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 Soso Factory. All rights reserved.</p>
+          <p>&copy; 2026 SOSO Factory. All rights reserved.</p>
         </div>
       </div>
     </footer>
