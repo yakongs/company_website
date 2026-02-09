@@ -1,5 +1,5 @@
 import React from "react";
-import companyImage from "../../assets/company.jpg";
+import companyImage from "../../assets/company.png";
 import { FcCloseUpMode, FcLike, FcConferenceCall } from "react-icons/fc";
 
 const About = () => {
