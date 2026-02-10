@@ -72,7 +72,7 @@ const Games = () => {
   return (
     <div className="container max-w-7xl mx-auto px-4 py-32">
       <div className="text-center mb-24">
-        <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+        <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
           Game Library
         </h2>
         <p className="text-xl text-gray-600">
