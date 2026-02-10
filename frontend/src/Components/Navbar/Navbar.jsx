@@ -15,7 +15,7 @@ const MenuItem = ({ path, label, onClick }) => (
   <li>
     <Link
       to={path}
-      className="hover:text-blue-600 transition duration-300"
+      className="hover:text-rose-700 transition duration-300"
       onClick={onClick}
     >
       {label}
