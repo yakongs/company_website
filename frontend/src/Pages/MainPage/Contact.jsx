@@ -65,7 +65,7 @@ const Contact = () => {
         <div className="mt-12 text-center">
           <Link
             to="/contact"
-            className="inline-block px-10 py-3 text-lg font-medium text-white bg-rose-700 rounded-lg shadow hover:bg-rose-800 transition-all duration-300 ease-in-out hover:shadow-lg"
+            className="inline-block px-10 py-3 text-lg font-medium text-white bg-rose-600 rounded-lg shadow hover:bg-rose-700 transition-all duration-300 ease-in-out hover:shadow-lg"
           >
             CONTACT US
           </Link>

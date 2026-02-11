@@ -47,7 +47,7 @@ const Hero = () => {
             { number: "24/7", label: "Player Support" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl font-bold text-rose-700">
+              <div className="text-3xl font-bold text-rose-600">
                 {stat.number}
               </div>
               <div className="text-gray-900">{stat.label}</div>
