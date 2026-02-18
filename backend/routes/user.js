@@ -24,7 +24,7 @@ router.post("/signup", async (req, res) => {
     await user.save();
     res.status(201).json({ message: "Registration completed." });
   } catch (error) {
-    res.status(500).json({ message: "Server error." });
+    res.status(500).json({ message: "Internal server error." });
     console.log(error);
   }
 });
@@ -87,9 +87,11 @@ router.post("/login", async (req, res) => {
       { expiresIn: "24h" },
     );
 
+    console.log(token);
+
     res.cookie("token", token, {
       httpOnly: true,
-      secure: "production",
+      secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 24 * 60 * 60 * 1000,
     });
@@ -104,4 +106,48 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", async (req, res) => {
+  try {
+    const token = req.cookies.token;
+
+    if (!token) {
+      return res.status(400).json({ message: "User is already logged out." });
+    }
+
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(decoded.userId);
+
+      if (user) {
+        user.isLoggedIn = false;
+        await user.save();
+      }
+    } catch (error) {
+      console.log("Invalid token", error.message);
+    }
+
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+
+    res.json({ message: "You have been logged out." });
+  } catch (error) {
+    console.log("Logout failed", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+router.delete("/delete/:userId", async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+    res.json({ message: "User deleted successfully." });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error." });
+  }
+});
 module.exports = router;
