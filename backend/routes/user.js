@@ -150,4 +150,22 @@ router.delete("/delete/:userId", async (req, res) => {
     res.status(500).json({ message: "Internal server error." });
   }
 });
+
+router.post("/verify-token", (req, res) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res
+      .status(400)
+      .json({ isValid: false, message: "Token not found." });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return res.status(200).json({ isValid: true, user: decoded });
+  } catch (error) {
+    return res.status(401).json({ isValid: false, message: "Invalid token." });
+  }
+});
+
 module.exports = router;

@@ -47,7 +47,7 @@ const Navbar = () => {
         <select
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
-          className="hidden lg:block px-3 ml-8 border rounded-md bg-white hover:border-blue-500 transition duration-300"
+          className="hidden lg:block px-3 ml-8 border rounded-md bg-white hover:border-rose-700 transition duration-300"
         >
           <option value="en">English</option>
           <option value="ko">한국어</option>
@@ -88,7 +88,7 @@ const Navbar = () => {
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="mt-6 w-full px-3 py-1 border rounded-md bg-white hover:border-blue-500 transition duration-300"
+            className="mt-6 w-full px-3 py-1 border rounded-md bg-white hover:border-rose-500 transition duration-300"
           >
             <option value="en">English</option>
             <option value="ko">한국어</option>
