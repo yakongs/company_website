@@ -165,7 +165,7 @@ const AdminContacts = () => {
         <button className="px-3 py-1 rounded border disabled:opacity-50">
           Prev
         </button>
-        <span className="px-3 py-1">1 / 1</span>
+        <span className="px-3 py-1 font-normal">1 / 1</span>
         <button className="px-3 py-1 rounded border disabled:opacity-50">
           Next
         </button>
