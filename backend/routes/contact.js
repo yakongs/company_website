@@ -21,12 +21,12 @@ const authenticateToken = (req, res, next) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { name, email, phone, message, status } = req.body;
+    const { name, email, subject, message, status } = req.body;
 
     const contact = new Contact({
       name,
       email,
-      phone,
+      subject,
       message,
       status,
     });

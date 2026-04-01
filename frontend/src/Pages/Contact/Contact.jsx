@@ -1,6 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+    status: "Pending",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/contact",
+        formData,
+      );
+
+      if (response.status === 201) {
+        alert("Your message has been received.");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          status: "Pending",
+        });
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+      alert(
+        "Something went wrong while submitting your inquiry. Please try again later.",
+      );
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white py-32">
       <div className="container mx-auto py-4 max-w-6xl">
@@ -20,7 +62,10 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <form className="bg-white rounded-2xl shadow-xl p-8">
+            <form
+              className="bg-white rounded-2xl shadow-xl p-8"
+              onSubmit={handleSubmit}
+            >
               <div className="space-y-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -28,9 +73,12 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300"
                     placeholder="John Doe"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
@@ -39,9 +87,12 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300"
                     placeholder="john.doe@example.com"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
@@ -50,9 +101,12 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="subject"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300"
                     placeholder="Briefly describe your inquiry"
                     required
+                    value={formData.subject}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
@@ -60,9 +114,12 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300 h-40"
                     placeholder="Tell us about your project, idea, or any questions you have..."
                     required
+                    value={formData.message}
+                    onChange={handleChange}
                   />
                 </div>
                 <button className="w-full bg-rose-700 text-white py-4 rounded-lg font-medium hover:bg-rose-800 transition-colors duration-300">

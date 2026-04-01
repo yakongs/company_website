@@ -12,7 +12,7 @@ const contactSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    phone: {
+    subject: {
       type: String,
       required: true,
       trim: true,
@@ -24,8 +24,8 @@ const contactSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["in progress", "pending", "completed"],
-      default: "in progress",
+      enum: ["Pending", "In Progress", "Completed"],
+      default: "Pending",
     },
     createdAt: {
       type: Date,
