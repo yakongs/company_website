@@ -9,6 +9,7 @@ const PORT = 3000;
 
 const userRoutes = require("./routes/user");
 const contactRoutes = require("./routes/contact");
+const postRoutes = require("./routes/post");
 
 app.use(
   cors({
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", userRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/post", postRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
