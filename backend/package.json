@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1024.0",
     "axios": "^1.13.5",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
@@ -17,7 +18,10 @@
     "dotenv": "^17.2.4",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.3",
+    "marked": "^17.0.5",
     "mongoose": "^9.2.0",
-    "nodemon": "^3.1.11"
+    "multer": "^2.1.1",
+    "nodemon": "^3.1.11",
+    "uuid": "^13.0.0"
   }
 }
