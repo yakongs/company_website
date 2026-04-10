@@ -68,7 +68,7 @@ const AdminContacts = () => {
 
   const handleDelete = async (id) => {
     const result = await Swal.fire({
-      title: "Are you sure?",
+      title: "Are you sure you want to delete?",
       text: "This action cannot be undone.",
       icon: "warning",
       showCancelButton: true,
@@ -104,7 +104,7 @@ const AdminContacts = () => {
 
   const filteredContacts = useMemo(() => {
     return contacts.filter((contact) => {
-      const value = contact[searchType].toLowerCase() || "";
+      const value = contact[searchType]?.toLowerCase() || "";
       const matchesSearch = value.includes(searchTerm.toLowerCase());
       const matchesStatus =
         statusFilter === "all" || contact.status === statusFilter;
@@ -224,48 +224,59 @@ const AdminContacts = () => {
                 </tr>
               </thead>
               <tbody className="[&>tr>td]:truncate">
-                {paginatedContacts.map((contact, index) => (
-                  <tr key={contact._id} className="border-b hover:bg-gray-50">
-                    <td className="px-3 py-4">
-                      {(currentPage - 1) * pageSize + index + 1}
-                    </td>
-                    <td className="px-3 py-4">{contact.name}</td>
-                    <td className="px-3 py-4">{contact.email}</td>
-                    <td className="px-3 py-4 truncate">{contact.subject}</td>
-                    <td className="px-3 py-4 truncate">{contact.message}</td>
-                    <td className="px-3 py-4">
-                      <span
-                        className={`px-2 py-1 rounded-full text-sm ${
-                          contact.status === "Pending"
-                            ? "bg-blue-100 text-blue-800"
-                            : contact.status === "In Progress"
-                              ? "bg-yellow-100 text-yellow-800"
-                              : "bg-green-100 text-green-800"
-                        }`}
-                      >
-                        {contact.status}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex justify-center space-x-2">
-                        <button
-                          className="px-3 py-1.5 bg-blue-500 text-white rounded hover:bg-blue-600"
-                          onClick={() => handleEdit(contact)}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className="px-3 py-1.5 bg-red-500 text-white rounded hover:bg-red-600"
-                          onClick={() => {
-                            handleDelete(contact._id);
-                          }}
-                        >
-                          Delete
-                        </button>
-                      </div>
+                {paginatedContacts.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan="8"
+                      className="px-4 py-8 text-center text-gray-500"
+                    >
+                      No inquiries found.
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  paginatedContacts.map((contact, index) => (
+                    <tr key={contact._id} className="border-b hover:bg-gray-50">
+                      <td className="px-3 py-4">
+                        {(currentPage - 1) * pageSize + index + 1}
+                      </td>
+                      <td className="px-3 py-4">{contact.name}</td>
+                      <td className="px-3 py-4">{contact.email}</td>
+                      <td className="px-3 py-4 truncate">{contact.subject}</td>
+                      <td className="px-3 py-4 truncate">{contact.message}</td>
+                      <td className="px-3 py-4">
+                        <span
+                          className={`px-2 py-1 rounded-full text-sm ${
+                            contact.status === "Pending"
+                              ? "bg-blue-100 text-blue-800"
+                              : contact.status === "In Progress"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-green-100 text-green-800"
+                          }`}
+                        >
+                          {contact.status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex justify-center space-x-2">
+                          <button
+                            className="px-3 py-1.5 bg-blue-500 text-white rounded hover:bg-blue-600"
+                            onClick={() => handleEdit(contact)}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="px-3 py-1.5 bg-red-500 text-white rounded hover:bg-red-600"
+                            onClick={() => {
+                              handleDelete(contact._id);
+                            }}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>

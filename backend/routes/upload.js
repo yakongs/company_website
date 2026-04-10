@@ -1,4 +1,8 @@
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const {
+  S3Client,
+  PutObjectCommand,
+  HeadObjectCommand,
+} = require("@aws-sdk/client-s3");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
@@ -80,6 +84,27 @@ router.post(
       const file = req.file;
       const originalName = req.body.originalName;
       const decodedFileName = decodeURIComponent(originalName);
+
+      try {
+        await s3Client.send(
+          new HeadObjectCommand({
+            Bucket: process.env.AWS_BUCKET_NAME,
+            Key: `post-files/${decodedFileName}`,
+          }),
+        );
+
+        return res.status(409).json({
+          message: "A file with the same name already exists.",
+          fileName: decodedFileName,
+        });
+      } catch (error) {
+        if (
+          error.name !== "NotFound" &&
+          error.$metadata?.httpStatusCode !== 404
+        ) {
+          throw error;
+        }
+      }
 
       const uploadParams = {
         Bucket: process.env.AWS_BUCKET_NAME,
