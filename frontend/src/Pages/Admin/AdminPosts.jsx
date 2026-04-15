@@ -17,7 +17,7 @@ const AdminPosts = () => {
 
         setPosts(response.data);
       } catch (error) {
-        console.log("Failed to fetch posts: ", error);
+        console.error("Failed to fetch posts:", error);
       }
     };
 
@@ -41,14 +41,16 @@ const AdminPosts = () => {
         await axios.delete(`http://localhost:3000/api/post/${id}`, {
           withCredentials: true,
         });
+
         setPosts(posts.filter((post) => post._id !== id));
         Swal.fire(
           "Delete Successful",
           "The item has been deleted successfully.",
           "success",
         );
+        setCurrentPage(1);
       } catch (error) {
-        console.error("삭제 실패:", error);
+        console.error("Delete Failed:", error);
         Swal.fire(
           "Delete Failed",
           "Something went wrong. Please try again.",
@@ -73,6 +75,7 @@ const AdminPosts = () => {
   }, [posts, searchTerm, searchType]);
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / pageSize));
+
   const paginatedPosts = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
     return filteredPosts.slice(start, start + pageSize);
@@ -109,22 +112,22 @@ const AdminPosts = () => {
           </div>
         </div>
 
-        <a
-          href="/admin/create-post"
+        <Link
+          to="/admin/create-post"
           className="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-center"
         >
           Add
-        </a>
+        </Link>
       </div>
 
       <div className="mb-4 flex justify-between items-center">
-        <div className="text-lg font-bold text-gray-600">
+        <div className="text-lg font-bold text-slate-600">
           {filteredPosts.length} posts
         </div>
 
         <div className="flex items-center space-x-2">
-          <label className="text-base font-bold text-gray-600">
-            Items per page:
+          <label className="text-base font-bold text-slate-600">
+            Rows per page:
           </label>
           <select
             className="border rounded px-3 py-2"
@@ -144,29 +147,32 @@ const AdminPosts = () => {
       </div>
 
       <div className="hidden md:block overflow-x-auto">
-        <table className="w-full bg-white shadow-md rounded-lg overflow-hidden text-sm lg:text-base">
-          <thead className="bg-gray-100">
+        <table className="w-full table-fixed bg-white shadow-md rounded-lg overflow-hidden text-sm lg:text-base">
+          <thead className="bg-slate-100">
             <tr>
-              <th className="px-4 py-3 text-left w-[8%]">No.</th>
-              <th className="px-4 py-3 text-left w-[15%]">Title</th>
-              <th className="px-4 py-3 text-left w-[30%]">Content</th>
-              <th className="px-4 py-3 text-left w-[7%]">Views</th>
-              <th className="px-4 py-3 text-left w-[10%]">Attachment</th>
-              <th className="px-4 py-3 text-left w-[12%]">Created At</th>
-              <th className="px-4 py-3 text-left w-[12%]">Updated At</th>
-              <th className="px-4 py-3 text-center w-[6%]">Actions</th>
+              <th className="px-4 py-3 text-left w-[5%]">No.</th>
+              <th className="px-4 py-3 text-left w-[20%]">Title</th>
+              <th className="px-4 py-3 text-left w-[28%]">Content</th>
+              <th className="px-4 py-3 text-left w-[5%]">Views</th>
+              <th className="px-4 py-3 text-left w-[12%]">Attachment</th>
+              <th className="px-4 py-3 text-left w-[9%]">Created At</th>
+              <th className="px-4 py-3 text-left w-[9%]">Updated At</th>
+              <th className="px-4 py-3 text-center w-[12%]">Actions</th>
             </tr>
           </thead>
           <tbody>
             {paginatedPosts.length === 0 ? (
               <tr>
-                <td colSpan="8" className="px-4 py-8 text-center text-gray-500">
+                <td
+                  colSpan="8"
+                  className="px-4 py-8 text-center text-slate-500"
+                >
                   No posts found.
                 </td>
               </tr>
             ) : (
               paginatedPosts.map((post, index) => (
-                <tr key={post._id} className="border-b hover:bg-gray-50">
+                <tr key={post._id} className="border-b hover:bg-slate-50">
                   <td className="px-4 py-3">
                     {(currentPage - 1) * pageSize + index + 1}
                   </td>
@@ -184,7 +190,7 @@ const AdminPosts = () => {
                           <button
                             key={index}
                             onClick={() => window.open(url, "_blank")}
-                            className="inline-flex items-center px-3 py-1.5 bg-white hover:bg-gray-50 text-gray-700 text-sm rounded-lg transition-all duration-200 border border-gray-300 shadow-sm hover:shadow w-full mb-1 last:mb-0"
+                            className="inline-flex items-center px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 text-sm rounded-lg transition-all duration-200 border border-slate-300 shadow-sm hover:shadow w-full mb-1 last:mb-0"
                           >
                             <svg
                               className="w-4 h-4 mr-2 text-blue-500"
@@ -209,7 +215,7 @@ const AdminPosts = () => {
                       post.fileUrl && (
                         <button
                           onClick={() => window.open(post.fileUrl, "_blank")}
-                          className="inline-flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-md transition-colors duration-200 border border-gray-300"
+                          className="inline-flex items-center px-3 py-1 bg-white-100 hover:bg-slate-200 text-slate-700 text-sm rounded-md transition-colors duration-200 border border-slate-300"
                         >
                           <svg
                             className="w-4 h-4 mr-2"
@@ -261,7 +267,7 @@ const AdminPosts = () => {
 
       <div className="md:hidden grid grid-cols-1 gap-4">
         {paginatedPosts.length === 0 ? (
-          <div className="col-span-full p-8 text-center text-gray-500 bg-white rounded-lg shadow">
+          <div className="col-span-full p-8 text-center text-slate-500 bg-white rounded-lg shadow">
             No posts found.
           </div>
         ) : (
@@ -271,7 +277,7 @@ const AdminPosts = () => {
               className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow"
             >
               <div className="flex justify-between items-start mb-2">
-                <span className="text-sm 2xl:text-base text-gray-500">
+                <span className="text-sm 2xl:text-base text-slate-500">
                   #{(currentPage - 1) * pageSize + index + 1}
                 </span>
                 <div className="flex gap-2">
@@ -294,22 +300,22 @@ const AdminPosts = () => {
                 {post.title}
               </h3>
 
-              <p className="text-gray-600 2xl:text-lg mb-3 overflow-hidden overflow-ellipsis whitespace-nowrap">
+              <p className="text-slate-600 2xl:text-lg mb-3 overflow-hidden overflow-ellipsis whitespace-nowrap">
                 {post.content}
               </p>
 
-              <div className="text-xs 2xl:text-base text-gray-500 mb-2">
+              <div className="text-xs 2xl:text-base text-slate-500 mb-2">
                 <span>Views: {post.views}</span>
               </div>
 
-              <div className="flex justify-between items-center text-sm 2xl:text-base text-gray-500 mb-2">
+              <div className="flex justify-between items-center text-sm 2xl:text-base text-slate-500 mb-2">
                 <div className="flex flex-col gap-2">
                   {Array.isArray(post.fileUrl)
                     ? post.fileUrl.map((url, index) => (
                         <button
                           key={index}
                           onClick={() => window.open(url, "_blank")}
-                          className="inline-flex items-center px-4 py-2 bg-white hover:bg-gray-50 text-gray-700 text-sm rounded-lg transition-all duration-200 border border-gray-300 shadow-sm hover:shadow-md w-full mb-1.5 last:mb-0 group"
+                          className="inline-flex items-center px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 text-sm rounded-lg transition-all duration-200 border border-slate-300 shadow-sm hover:shadow-md w-full mb-1.5 last:mb-0 group"
                         >
                           <svg
                             className="w-4 h-4 mr-2 text-blue-500 group-hover:text-blue-600 transition-colors"
@@ -332,7 +338,7 @@ const AdminPosts = () => {
                     : post.fileUrl && (
                         <button
                           onClick={() => window.open(post.fileUrl, "_blank")}
-                          className="inline-flex items-center px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm rounded-md transition-colors duration-200 border border-gray-300 w-full"
+                          className="inline-flex items-center px-3 py-1 bg-white hover:bg-slate-200 text-slate-700 text-sm rounded-md transition-colors duration-200 border border-slate-300 w-full"
                         >
                           <svg
                             className="w-4 h-4 mr-2"
@@ -353,7 +359,7 @@ const AdminPosts = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between text-sm 2xl:text-base text-gray-500">
+              <div className="flex justify-between text-sm 2xl:text-base text-slate-500">
                 <span>
                   Created At: {new Date(post.createdAt).toLocaleString()}
                 </span>
@@ -366,9 +372,9 @@ const AdminPosts = () => {
         )}
       </div>
 
-      <div className="mt-4 flex justify-center space-x-2 text-lg font-bold">
+      <div className="mt-4 flex justify-center space-x-2 text-base font-bold">
         <button
-          className="px-3 py-1 rounded border disabled:opacity-50"
+          className="px-3 py-1 rounded border disabled:opacity-50 bg-slate-100"
           onClick={() => setCurrentPage((p) => p - 1)}
           disabled={currentPage === 1}
         >
@@ -379,7 +385,7 @@ const AdminPosts = () => {
           {currentPage} / {totalPages}
         </span>
         <button
-          className="px-3 py-1 rounded border disabled:opacity-50"
+          className="px-3 py-1 rounded border disabled:opacity-50 bg-slate-100"
           onClick={() => setCurrentPage((p) => p + 1)}
           disabled={currentPage === totalPages}
         >

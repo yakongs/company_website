@@ -16,8 +16,6 @@ const AdminLogin = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-
-    // console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -35,8 +33,8 @@ const AdminLogin = () => {
         navigate("/admin/posts");
       }
     } catch (error) {
-      const errorMessage = error.response.data.message || "Login failed.";
-      const remainingAttempts = error.response.data.remainingAttempts;
+      const errorMessage = error.response?.data?.message || "Login failed.";
+      const remainingAttempts = error.response?.data?.remainingAttempts;
 
       setError({
         message: errorMessage,

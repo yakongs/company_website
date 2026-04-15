@@ -35,7 +35,7 @@ const AdminEditPost = () => {
           existingFiles: response.data.fileUrl || [],
         });
       } catch (error) {
-        console.error("Error fetching post:", error);
+        console.error("Failed to fetch post:", error);
         navigate("/admin/posts");
       }
     };
@@ -124,7 +124,6 @@ const AdminEditPost = () => {
     } catch (error) {
       if (error.response?.status === 409) {
         const fileName = error.response.data.fileName;
-        console.log(fileName);
 
         await Swal.fire({
           icon: "error",
@@ -132,7 +131,12 @@ const AdminEditPost = () => {
           html: `${fileName} already exists.<br>Please rename the file and try again.`,
         });
       } else {
-        console.error("Error creating post:", error);
+        console.error("Failed to create post:", error);
+        await Swal.fire({
+          icon: "error",
+          title: "Upload failed",
+          text: "Something went wrong. Please try again.",
+        });
       }
       setShowUploadModal(false);
     }
@@ -270,7 +274,7 @@ const AdminEditPost = () => {
 
                     return response.data.imageUrl;
                   } catch (error) {
-                    console.error("Image upload failed:", error);
+                    console.error("Failed to upload image:", error);
                     throw error;
                   }
                 },

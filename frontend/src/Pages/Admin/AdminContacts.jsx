@@ -22,7 +22,7 @@ const AdminContacts = () => {
 
         setContacts(response.data);
       } catch (error) {
-        console.log("Failed to fetch inquiries: ", error);
+        console.error("Failed to fetch inquiries:", error);
       }
     };
 
@@ -57,7 +57,7 @@ const AdminContacts = () => {
         "success",
       );
     } catch (error) {
-      console.log("Update failed: ", error);
+      console.error("Update failed:", error);
       Swal.fire(
         "Update Failed",
         "Something went wrong. Please try again.",
@@ -92,7 +92,7 @@ const AdminContacts = () => {
         );
         setCurrentPage(1);
       } catch (error) {
-        console.log("Delete Failed: ", error);
+        console.error("Delete Failed:", error);
         Swal.fire(
           "Delete Failed",
           "Something went wrong. Please try again.",
@@ -113,6 +113,7 @@ const AdminContacts = () => {
   }, [contacts, searchTerm, searchType, statusFilter]);
 
   const totalPages = Math.max(1, Math.ceil(filteredContacts.length / pageSize));
+
   const paginatedContacts = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
     return filteredContacts.slice(start, start + pageSize);
@@ -124,7 +125,7 @@ const AdminContacts = () => {
 
       {contacts.length === 0 ? (
         <div className="text-center py-8 bg-white rounded-lg shadow">
-          <p className="text-2xl font-bold text-gray-800">
+          <p className="text-2xl font-bold text-slate-800">
             No inquiries found.
           </p>
         </div>
@@ -175,8 +176,8 @@ const AdminContacts = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <label className="text-base font-bold text-gray-600">
-                Items per page:
+              <label className="text-base font-bold text-slate-600">
+                Rows per page:
               </label>
               <select
                 className="border rounded px-3 py-2"
@@ -196,7 +197,7 @@ const AdminContacts = () => {
           </div>
 
           <div className="mb-4">
-            <div className="text-lg font-bold text-gray-600">
+            <div className="text-lg font-bold text-slate-600">
               {filteredContacts.length} inquiries
             </div>
           </div>
@@ -212,7 +213,7 @@ const AdminContacts = () => {
                 <col className="w-[10%]"></col>
                 <col className="w-[10%]"></col>
               </colgroup>
-              <thead className="bg-gray-100">
+              <thead className="bg-slate-100">
                 <tr>
                   <th className="px-4 py-3 text-left">No.</th>
                   <th className="px-4 py-3 text-left">Name</th>
@@ -223,19 +224,22 @@ const AdminContacts = () => {
                   <th className="px-4 py-3 text-center">Actions</th>
                 </tr>
               </thead>
-              <tbody className="[&>tr>td]:truncate">
+              <tbody>
                 {paginatedContacts.length === 0 ? (
                   <tr>
                     <td
                       colSpan="8"
-                      className="px-4 py-8 text-center text-gray-500"
+                      className="px-4 py-8 text-center text-slate-500"
                     >
                       No inquiries found.
                     </td>
                   </tr>
                 ) : (
                   paginatedContacts.map((contact, index) => (
-                    <tr key={contact._id} className="border-b hover:bg-gray-50">
+                    <tr
+                      key={contact._id}
+                      className="border-b hover:bg-slate-50"
+                    >
                       <td className="px-3 py-4">
                         {(currentPage - 1) * pageSize + index + 1}
                       </td>
@@ -285,7 +289,7 @@ const AdminContacts = () => {
             {paginatedContacts.map((contact, index) => (
               <div
                 key={contact._id}
-                className="p-4 border rounded-lg bg-white shadow-md text-lg font-bold"
+                className="p-4 border rounded-lg bg-white shadow-md text-lg font-medium"
               >
                 <div className="flex justify-between items-center mb-2">
                   <div>
@@ -327,9 +331,9 @@ const AdminContacts = () => {
             ))}
           </div>
 
-          <div className="mt-4 flex justify-center space-x-2 text-lg font-bold">
+          <div className="mt-4 flex justify-center space-x-2 text-base font-bold">
             <button
-              className="px-3 py-1 rounded border disabled:opacity-50"
+              className="px-3 py-1 rounded border disabled:opacity-50 bg-slate-100"
               onClick={() => setCurrentPage((p) => p - 1)}
               disabled={currentPage === 1}
             >
@@ -339,7 +343,7 @@ const AdminContacts = () => {
               {currentPage} / {totalPages}
             </span>
             <button
-              className="px-3 py-1 rounded border disabled:opacity-50"
+              className="px-3 py-1 rounded border disabled:opacity-50 bg-slate-100"
               onClick={() => setCurrentPage((p) => p + 1)}
               disabled={currentPage === totalPages}
             >

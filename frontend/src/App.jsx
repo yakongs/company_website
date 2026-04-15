@@ -16,6 +16,7 @@ import MainPage from "./Pages/MainPage/MainPage";
 import About from "./Pages/About/About";
 import Games from "./Pages/Games/Games";
 import Careers from "./Pages/Careers/Careers";
+import SinglePost from "./Pages/SinglePost/SinglePost";
 import Publishing from "./Pages/Publishing/Publishing";
 import Contact from "./Pages/Contact/Contact";
 
@@ -125,6 +126,10 @@ const router = createBrowserRouter([
       {
         path: "careers",
         element: <Careers />,
+      },
+      {
+        path: "/post/:id",
+        element: <SinglePost />,
       },
       {
         path: "publishing",
