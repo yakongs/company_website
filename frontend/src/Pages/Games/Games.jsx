@@ -1,6 +1,7 @@
 import React from "react";
 // import characters from "../../assets/characters.png";
 import { gameImages } from "../../assets/gameImages.js";
+import { motion } from "framer-motion";
 
 const original = [
   {
@@ -68,10 +69,23 @@ const published = [
   },
 ];
 
+const fadeInVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.2 },
+  }),
+};
+
 const Games = () => {
   return (
-    <div className="container max-w-7xl mx-auto px-4 py-32">
-      <div className="text-center mb-24">
+    <motion.div
+      className="container max-w-7xl mx-auto px-4 py-32"
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="text-center mb-24" variants={fadeInVariants}>
         <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
           Game Library
         </h2>
@@ -79,7 +93,7 @@ const Games = () => {
           Discover worlds we’ve crafted with passion, creativity, and a love for
           play
         </p>
-      </div>
+      </motion.div>
 
       {/*
       <div className="flex flex-col md:flex-row gap-12 mb-24 items-center">
@@ -107,15 +121,17 @@ const Games = () => {
       </div>
       */}
 
-      <div className="mb-24">
+      <motion.div className="mb-24" variants={fadeInVariants} custom={1}>
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
           SOSO Factory Original
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {original.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              variants={fadeInVariants}
+              custom={index}
             >
               <div className="group relative aspect-square overflow-hidden">
                 <img
@@ -132,20 +148,22 @@ const Games = () => {
                 </h3>
                 <p className="text-rose-600 font-semibold">{item.genre}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mb-24">
+      <motion.div className="mb-24" variants={fadeInVariants} custom={2}>
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
           SOSO Factory Publishing
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {published.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              variants={fadeInVariants}
+              custom={index}
             >
               <div className="group relative aspect-square overflow-hidden">
                 <img
@@ -162,11 +180,11 @@ const Games = () => {
                 </h3>
                 <p className="text-rose-600 font-semibold">{item.genre}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

@@ -7,6 +7,8 @@ const AdminContacts = () => {
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+  const [viewContact, setViewContact] = useState(null);
 
   const [selectedContact, setSelectedContact] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -64,6 +66,11 @@ const AdminContacts = () => {
         "error",
       );
     }
+  };
+
+  const handleViewMessage = (contact) => {
+    setViewContact(contact);
+    setIsViewModalOpen(true);
   };
 
   const handleDelete = async (id) => {
@@ -246,7 +253,15 @@ const AdminContacts = () => {
                       <td className="px-3 py-4">{contact.name}</td>
                       <td className="px-3 py-4">{contact.email}</td>
                       <td className="px-3 py-4 truncate">{contact.subject}</td>
-                      <td className="px-3 py-4 truncate">{contact.message}</td>
+                      <td className="px-3 py-4 truncate">
+                        <button
+                          type="button"
+                          onClick={() => handleViewMessage(contact)}
+                          className="w-full truncate text-left text-blue-600 hover:underline"
+                        >
+                          {contact.message}
+                        </button>
+                      </td>
                       <td className="px-3 py-4">
                         <span
                           className={`px-2 py-1 rounded-full text-sm ${
@@ -310,7 +325,10 @@ const AdminContacts = () => {
                 <div>Name: {contact.name}</div>
                 <div>Email: {contact.email}</div>
                 <div>Subject: {contact.subject}</div>
-                <div>Message: {contact.message}</div>
+                <div>
+                  Message: <br />
+                  {contact.message}
+                </div>
                 <div className="mt-4 flex justify-end space-x-2">
                   <button
                     className="px-3 py-1.5 bg-blue-500 text-white rounded hover:bg-blue-600 whitespace-nowrap"
@@ -401,6 +419,46 @@ const AdminContacts = () => {
                 }}
               >
                 Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isViewModalOpen && viewContact && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto">
+            <h2 className="text-2xl font-bold mb-4">Contact Message Detail</h2>
+
+            <div className="space-y-3 text-base">
+              <div>
+                <span className="font-bold">Name:</span> {viewContact.name}
+              </div>
+              <div>
+                <span className="font-bold">Email:</span> {viewContact.email}
+              </div>
+              <div>
+                <span className="font-bold">Subject:</span>{" "}
+                {viewContact.subject}
+              </div>
+              <div>
+                <span className="font-bold">Message:</span>
+                <p className="mt-2 whitespace-pre-wrap break-words rounded bg-slate-50 p-4">
+                  {viewContact.message}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsViewModalOpen(false);
+                  setViewContact(null);
+                }}
+                className="px-4 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200"
+              >
+                Close
               </button>
             </div>
           </div>

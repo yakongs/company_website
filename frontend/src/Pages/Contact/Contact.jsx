@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -36,17 +37,38 @@ const Contact = () => {
         });
       }
     } catch (error) {
-      console.log("Error: ", error);
+      console.log("Failed to submit contact form:", error);
       alert(
         "Something went wrong while submitting your inquiry. Please try again later.",
       );
     }
   };
 
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, delay: i * 0.2 },
+    }),
+  };
+
   return (
-    <div className="min-h-screen bg-white py-32">
-      <div className="container mx-auto py-4 max-w-6xl">
-        <div className="text-center mb-16">
+    <motion.div
+      className="min-h-screen bg-white py-32"
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div
+        className="container mx-auto px-4 max-w-6xl"
+        variants={fadeInVariants}
+        custom={0}
+      >
+        <motion.div
+          className="text-center mb-16"
+          variants={fadeInVariants}
+          custom={1}
+        >
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
             Contact Us
           </h1>
@@ -58,14 +80,19 @@ const Contact = () => {
             Whether it’s about a collaboration, a partnership, a media inquiry,
             or a professional opportunity, we’re here to listen.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <form
-              className="bg-white rounded-2xl shadow-xl p-8"
-              onSubmit={handleSubmit}
-            >
+        <motion.div
+          className="grid lg:grid-cols-2 gap-12 items-start"
+          variants={fadeInVariants}
+          custom={2}
+        >
+          <motion.div
+            className="bg-white rounded-2xl shadow-xl p-8"
+            variants={fadeInVariants}
+            custom={3}
+          >
+            <form onSubmit={handleSubmit}>
               <div className="space-y-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
@@ -122,14 +149,21 @@ const Contact = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <button className="w-full bg-rose-700 text-white py-4 rounded-lg font-medium hover:bg-rose-800 transition-colors duration-300">
+                <button
+                  type="submit"
+                  className="w-full bg-rose-700 text-white py-4 rounded-lg font-medium hover:bg-rose-800 transition-colors duration-300"
+                >
                   SEND
                 </button>
               </div>
             </form>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            variants={fadeInVariants}
+            custom={4}
+          >
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">
                 Contact Information
@@ -165,20 +199,24 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              variants={fadeInVariants}
+              custom={5}
+            >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.6472743157924!2d-79.42127921443829!3d43.7801802696964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2d0dd76095b1%3A0x888ffab2861f93ef!2s5650%20Yonge%20St%2C%20North%20York%2C%20ON%20M2M%204H5!5e0!3m2!1sko!2sca!4v1769661426523!5m2!1sko!2sca"
                 width="100%"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-[400px] md:h-[600px] lg:h-[600px]"
+                className="w-full h-[400px] md:h-[600px]"
               ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 
