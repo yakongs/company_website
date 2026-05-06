@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdCall, MdEmail, MdLocationPin } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import translations from "../../Locale/Contact-Components.json";
 
 const Contact = () => {
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
+  }, []);
+
   const gridVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
@@ -39,12 +55,12 @@ const Contact = () => {
             className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4"
             variants={titleVariant}
           >
-            Contact
+            {translations[language].title}
           </motion.h2>
           <motion.p className="text-gray-600 text-lg" variants={titleVariant}>
-            Do you have a support request or question regarding one of our
-            games? <br />
-            Please get in touch!
+            {translations[language].subtitle}
+            <br />
+            {translations[language].subtitle2}
           </motion.p>
         </motion.div>
 
@@ -58,12 +74,12 @@ const Contact = () => {
             {
               icon: <MdEmail />,
               info: "support@example.com",
-              subInfo: "Available 24/7",
+              subInfo: translations[language].contactMethods.EmailSubInfo,
             },
             {
               icon: <MdLocationPin />,
               info: "5650 Yonge St",
-              subInfo: "Toronto, ON, M2M 4H5",
+              subInfo: translations[language].contactMethods.locationSubInfo,
             },
           ].map((item, index) => (
             <motion.div
@@ -112,7 +128,7 @@ const Contact = () => {
             to="/contact"
             className="inline-block px-10 py-3 text-lg font-medium text-white bg-rose-600 rounded-lg shadow hover:bg-rose-700 transition-all duration-300 ease-in-out hover:shadow-lg"
           >
-            CONTACT US
+            {translations[language].button}
           </Link>
         </motion.div>
       </div>

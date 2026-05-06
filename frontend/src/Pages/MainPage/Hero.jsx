@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GameImage from "../../assets/BouncyBistro.jpg";
-import { motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
+import translations from "../../Locale/Hero.json";
 
 const Hero = () => {
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
+  }, []);
+
   const textVariant = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3 } },
@@ -27,6 +43,13 @@ const Hero = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 1 } },
   };
 
+  const stats = [
+    { key: "installations" },
+    { key: "satisfaction" },
+    { key: "experience" },
+    { key: "support" },
+  ];
+
   return (
     <div className="relative min-h-[110vh] bg-gradient-to-b from-gray-50 to-white pb-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
@@ -45,8 +68,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
-                Serve adorable customers, upgrade your kitchen, and turn your
-                tiny cafe into the most popular spot in town.
+                {translations[language].description}
               </motion.span>
             </motion.h1>
             {/*<p className="text-lg sm:text-xl text-gray-800 font-semibold mb-8 max-w-2xl mx-auto">
@@ -59,7 +81,7 @@ const Hero = () => {
                 animate="visible"
                 variants={buttonVariant}
               >
-                DOWNLOAD
+                {translations[language].buttons.download}
               </motion.button>
               <motion.button
                 className="px-8 py-4 bg-white text-rose-700 rounded-lg border-2 border-rose-700 hover:bg-rose-50 transition-colors duration-300 text-lg font-semibold"
@@ -67,7 +89,7 @@ const Hero = () => {
                 animate="visible"
                 variants={buttonVariant}
               >
-                Learn More
+                {translations[language].buttons.learnMore}
               </motion.button>
             </div>
           </div>
@@ -80,7 +102,7 @@ const Hero = () => {
             <div className="relative">
               <img
                 src={GameImage}
-                alt="Bouncy Bistro game key art"
+                alt={translations[language].image}
                 className="relative rounded-2xl shadow-2xl w-full object-cover transform hover:scale-[1.02] transition-transform duration-300"
               />
             </div>
@@ -90,12 +112,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {[
-            { number: "500K+", label: "Players Worldwide" },
-            { number: "4.8★", label: "Average Rating" },
-            { number: "12+", label: "Games Released" },
-            { number: "24/7", label: "Player Support" },
-          ].map((stat, index) => (
+          {stats.map((stat, index) => (
             <motion.div
               key={index}
               className="text-center"
@@ -104,9 +121,11 @@ const Hero = () => {
               variants={statusVariant}
             >
               <div className="text-3xl font-bold text-rose-600">
-                {stat.number}
+                {translations[language].stats[stat.key].number}
               </div>
-              <div className="text-gray-900">{stat.label}</div>
+              <div className="text-gray-900">
+                {translations[language].stats[stat.key].label}
+              </div>
             </motion.div>
           ))}
         </div>

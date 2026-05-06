@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import translations from "../../Locale/Careers.json";
 
 const Careers = () => {
   const [posts, setPosts] = useState([]);
@@ -11,6 +12,9 @@ const Careers = () => {
   const [searchType, setSearchType] = useState("title");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
 
   const navigate = useNavigate();
 
@@ -26,6 +30,17 @@ const Careers = () => {
     };
 
     fetchPosts();
+  }, []);
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
   }, []);
 
   const filteredPosts = useMemo(() => {
@@ -68,11 +83,10 @@ const Careers = () => {
     >
       <motion.div className="text-center mb-24" variants={fadeIn} custom={0}>
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 md:mb-8">
-          Careers
+          {translations[language].title}
         </h1>
         <p className="text-xl text-gray-600">
-          SOSO Factory, where talented teams come together to create great
-          games!
+          {translations[language].subtitle}
         </p>
       </motion.div>
 
@@ -90,12 +104,12 @@ const Careers = () => {
               setCurrentPage(1);
             }}
           >
-            <option value="title">Title</option>
+            <option value="title">{translations[language].search.title}</option>
           </select>
           <div className="flex-1 md:w-80">
             <input
               type="text"
-              placeholder="Search"
+              placeholder={translations[language].search.placeholder}
               className="w-full border rounded px-3 py-2 text-base"
               value={searchTerm}
               onChange={(e) => {
@@ -108,7 +122,9 @@ const Careers = () => {
 
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-bold">Start Date:</label>
+            <label className="text-sm font-bold">
+              {translations[language].search.dateStart}
+            </label>
             <input
               type="date"
               value={startDate}
@@ -120,7 +136,9 @@ const Careers = () => {
             />
           </div>
           <div className="flex items-center gap-2">
-            <label className="text-sm font-bold">End Date:</label>
+            <label className="text-sm font-bold">
+              {translations[language].search.dateEnd}
+            </label>
             <input
               type="date"
               value={endDate}
@@ -134,7 +152,9 @@ const Careers = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <label className="text-sm font-bold">Rows per page:</label>
+          <label className="text-sm font-bold">
+            {translations[language].search.itemsPerPage}
+          </label>
           <select
             className="border rounded px-3 py-2"
             value={pageSize}
@@ -161,16 +181,16 @@ const Careers = () => {
           <thead className="bg-gray-100">
             <tr>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider w-[8%]">
-                No.
+                {translations[language].table.number}
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider w-auto">
-                Title
+                {translations[language].table.title}
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider w-[15%]">
-                Date
+                {translations[language].table.date}
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider w-[8%]">
-                Views
+                {translations[language].table.views}
               </th>
             </tr>
           </thead>
@@ -178,7 +198,7 @@ const Careers = () => {
             {paginatedPosts.length === 0 ? (
               <tr>
                 <td colSpan="4" className="px-4 py-8 text-center text-gray-500">
-                  No posts found.
+                  {translations[language].noPosts}
                 </td>
               </tr>
             ) : (
@@ -212,7 +232,7 @@ const Careers = () => {
       >
         {paginatedPosts.length === 0 ? (
           <div className="col-span-full text-center text-gray-500 p-2">
-            No posts found.
+            {translations[language].noPosts}
           </div>
         ) : (
           paginatedPosts.map((post, index) => (
@@ -230,9 +250,12 @@ const Careers = () => {
                 </span>
               </div>
               <p className="text-sm text-gray-600 mb-3">
-                Date: {new Date(post.createdAt).toLocaleDateString()}
+                {translations[language].table.date}:{" "}
+                {new Date(post.createdAt).toLocaleDateString()}
               </p>
-              <p className="text-sm text-gray-600">Views: {post.views}</p>
+              <p className="text-sm text-gray-600">
+                {translations[language].table.views}: {post.views}
+              </p>
             </motion.div>
           ))
         )}
@@ -244,7 +267,7 @@ const Careers = () => {
           onClick={() => setCurrentPage((p) => p - 1)}
           disabled={currentPage === 1}
         >
-          Prev
+          {translations[language].pagination.prev}
         </button>
         <span className="px-3 py-1 font-normal">
           {currentPage} / {totalPages}
@@ -254,7 +277,7 @@ const Careers = () => {
           onClick={() => setCurrentPage((p) => p + 1)}
           disabled={currentPage === totalPages}
         >
-          Next
+          {translations[language].pagination.next}
         </button>
       </motion.div>
     </motion.div>

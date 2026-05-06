@@ -1,0 +1,47 @@
+{
+  "ko": {
+    "menu": {
+      "home": "홈",
+      "about": "회사 정보",
+      "games": "게임 소개",
+      "careers": "채용",
+      "publishing": "퍼블리싱",
+      "contact": "문의하기"
+    },
+    "buttons": {
+      "menu": "메뉴",
+      "close": "닫기"
+    },
+    "language": "한국어"
+  },
+  "en": {
+    "menu": {
+      "home": "HOME",
+      "about": "ABOUT",
+      "games": "GAMES",
+      "careers": "CAREERS",
+      "publishing": "PUBLISHING",
+      "contact": "CONTACT"
+    },
+    "buttons": {
+      "menu": "Menu",
+      "close": "Close"
+    },
+    "language": "English"
+  },
+  "fr": {
+    "menu": {
+      "home": "ACCUEIL",
+      "about": "À PROPOS",
+      "games": "JEUX",
+      "careers": "CARRIÈRES",
+      "publishing": "ÉDITION",
+      "contact": "CONTACT"
+    },
+    "buttons": {
+      "menu": "Menu",
+      "close": "Fermer"
+    },
+    "language": "Français"
+  }
+}

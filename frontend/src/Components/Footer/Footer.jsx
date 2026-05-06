@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
@@ -8,8 +8,24 @@ import {
   FaYoutube,
   FaSteam,
 } from "react-icons/fa";
+import translations from "../../Locale/Footer.json";
 
 const Footer = () => {
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,14 +37,18 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Abour Us</h3>
+            <h3 className="text-xl font-bold mb-4">
+              {translations[language].aboutUs.title}
+            </h3>
             <p className="text-gray-400">
-              We create worlds where imagination becomes your next adventure
+              {translations[language].aboutUs.description}
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Resources</h3>{" "}
+            <h3 className="text-xl font-bold mb-4">
+              {translations[language].resources.title}
+            </h3>{" "}
             {/* Quick Links */}
             <ul className="space-y-2">
               <li>
@@ -37,7 +57,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  Home
+                  {translations[language].resources.home}
                 </Link>
               </li>
               <li>
@@ -46,7 +66,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  About
+                  {translations[language].resources.about}
                 </Link>
               </li>
               <li>
@@ -55,7 +75,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  Games
+                  {translations[language].resources.games}
                 </Link>
               </li>
               <li>
@@ -64,7 +84,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  Careers
+                  {translations[language].resources.careers}
                 </Link>
               </li>
               <li>
@@ -73,7 +93,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  Publishing
+                  {translations[language].resources.publishing}
                 </Link>
               </li>
               <li>
@@ -82,24 +102,28 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="hover:text-white transition-colors"
                 >
-                  Contact
+                  {translations[language].resources.contact}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact & Support</h3>
+            <h3 className="text-xl font-bold mb-4">
+              {translations[language].location.title}
+            </h3>
             <ul className="space-y-2 text-gray-400">
-              <li>SOSO Factory Inc.</li>
-              <li>777 Jelly Pop Road, Floor 2</li>
-              <li>Toronto, ON M3M 3B3</li>
-              <li>Canada</li>
+              <li>{translations[language].location.company}</li>
+              <li>{translations[language].location.address1}</li>
+              <li>{translations[language].location.address2}</li>
+              <li>{translations[language].location.country}</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Social</h3>
+            <h3 className="text-xl font-bold mb-4">
+              {translations[language].social.title}
+            </h3>
             <div className="flex space-x-4">
               <a
                 href="#"
@@ -142,7 +166,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 SOSO Factory. All rights reserved.</p>
+          <p>{translations[language].copyright}</p>
         </div>
       </div>
     </footer>

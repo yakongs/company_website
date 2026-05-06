@@ -2,10 +2,25 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import translations from "../../Locale/Careers-Components.json";
 
 const Careers = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -20,7 +35,7 @@ const Careers = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [language]);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -54,7 +69,7 @@ const Careers = () => {
             className="text-4xl lg:text-5xl font-bold text-gray-900"
             variants={itemVariants}
           >
-            Careers
+            {translations[language].title}
           </motion.h2>
         </div>
 
@@ -64,7 +79,7 @@ const Careers = () => {
             className="px-5 py-2 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors duration-300 flex items-center gap-2 border border-gray-200"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            View All
+            {translations[language].viewAll}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -93,7 +108,7 @@ const Careers = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              Loading...
+              {translations[language].loading}
             </motion.div>
           ) : posts.length === 0 ? (
             <motion.div
@@ -102,7 +117,7 @@ const Careers = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              No recent posts.
+              {translations[language].noRecentPosts}
             </motion.div>
           ) : (
             posts.map((post, index) => (
@@ -117,14 +132,15 @@ const Careers = () => {
                     <div className="flex-1">
                       <div className="flex items-center gap-4 mb-2">
                         <span className="text-gray-500 text-sm">
-                          No. {post.number}
+                          {translations[language].postInfo.number} {post.number}
                         </span>
                         <span className="text-gray-500 text-sm">
-                          views {post.views}
+                          {translations[language].postInfo.views}: {post.views}
                         </span>
                         {post.fileUrl?.length > 0 && (
                           <span className="text-gray-500 text-sm">
-                            file: {post.fileUrl.length}
+                            {translations[language].postInfo.files}:{" "}
+                            {post.fileUrl.length}
                           </span>
                         )}
                       </div>

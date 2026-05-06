@@ -1,0 +1,80 @@
+{
+  "ko": {
+    "aboutUs": {
+      "title": "회사 소개",
+      "description": "상상이 다음 모험이 되는 세계를 만듭니다."
+    },
+    "resources": {
+      "title": "메뉴",
+      "home": "홈",
+      "about": "회사 정보",
+      "games": "게임 소개",
+      "careers": "채용",
+      "publishing": "퍼블리싱",
+      "contact": "문의하기"
+    },
+    "location": {
+      "title": "위치",
+      "company": "SOSO Factory Inc.",
+      "address1": "5650 Yonge St",
+      "address2": "토론토, 온타리오, M2M 4H5",
+      "country": "캐나다"
+    },
+    "social": {
+      "title": "소셜 미디어"
+    },
+    "copyright": "© 2026 SOSO Factory. All rights reserved."
+  },
+  "en": {
+    "aboutUs": {
+      "title": "About Us",
+      "description": "We create worlds where imagination becomes your next adventure."
+    },
+    "resources": {
+      "title": "Resources",
+      "home": "Home",
+      "about": "About",
+      "games": "Games",
+      "careers": "Careers",
+      "publishing": "Publishing",
+      "contact": "Contact"
+    },
+    "location": {
+      "title": "Location",
+      "company": "SOSO Factory Inc.",
+      "address1": "5650 Yonge St",
+      "address2": "Toronto, ON, M2M 4H5",
+      "country": "Canada"
+    },
+    "social": {
+      "title": "Social"
+    },
+    "copyright": "© 2026 SOSO Factory. All rights reserved."
+  },
+  "fr": {
+    "aboutUs": {
+      "title": "À propos de nous",
+      "description": "Nous créons des mondes où l’imagination devient votre prochaine aventure."
+    },
+    "resources": {
+      "title": "Ressources",
+      "home": "Accueil",
+      "about": "À propos",
+      "games": "Jeux",
+      "careers": "Carrières",
+      "publishing": "Édition",
+      "contact": "Contact"
+    },
+    "location": {
+      "title": "Emplacement",
+      "company": "SOSO Factory Inc.",
+      "address1": "5650 Yonge St",
+      "address2": "Toronto, ON, M2M 4H5",
+      "country": "Canada"
+    },
+    "social": {
+      "title": "Réseaux sociaux"
+    },
+    "copyright": "© 2026 SOSO Factory. Tous droits réservés."
+  }
+}

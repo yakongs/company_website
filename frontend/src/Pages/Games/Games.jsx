@@ -1,84 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import characters from "../../assets/characters.png";
 import { gameImages } from "../../assets/gameImages.js";
 import { motion } from "framer-motion";
-
-const original = [
-  {
-    name: "Bouncy Bistro",
-    genre: "Casual / Time Management",
-    imageUrl: gameImages[0],
-  },
-  {
-    name: "NEBULA: Rift of Fate",
-    genre: "Action RPG / Sci-Fi",
-    imageUrl: gameImages[1],
-  },
-  {
-    name: "Tiny Defenders",
-    genre: "Tower Defense",
-    imageUrl: gameImages[2],
-  },
-  {
-    name: "Ironclad Tactics",
-    genre: "Strategy / Turn-Based",
-    imageUrl: gameImages[3],
-  },
-  {
-    name: "Skybound Racers",
-    genre: "Arcade Racing",
-    imageUrl: gameImages[4],
-  },
-  {
-    name: "Lost Signals",
-    genre: "Puzzle / Mystery",
-    imageUrl: gameImages[5],
-  },
-  {
-    name: "Monster Mail Express",
-    genre: "Casual Adventure",
-    imageUrl: gameImages[6],
-  },
-  {
-    name: "Paper Coffin",
-    genre: "2D Psychological Horror",
-    imageUrl: gameImages[7],
-  },
-];
-
-const published = [
-  {
-    name: "Between the Lines",
-    genre: "Romance Simulation / Narrative",
-    imageUrl: gameImages[8],
-  },
-  {
-    name: "Null Protocol",
-    genre: "3D Stealth / Sci-Fi",
-    imageUrl: gameImages[9],
-  },
-  {
-    name: "Ashes of the Deep",
-    genre: "3D RPG / Dark Fantasy",
-    imageUrl: gameImages[10],
-  },
-  {
-    name: "Rust Eden",
-    genre: "3D Exploration / Post-Apocalyptic",
-    imageUrl: gameImages[11],
-  },
-];
-
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.2 },
-  }),
-};
+import translations from "../../Locale/Games.json";
 
 const Games = () => {
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
+  }, []);
+
+  const originalGames = translations[language].originalGames.games;
+  const publishedGames = translations[language].publishedGames.games;
+
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, delay: i * 0.2 },
+    }),
+  };
+
   return (
     <motion.div
       className="container max-w-7xl mx-auto px-4 py-32"
@@ -87,11 +40,10 @@ const Games = () => {
     >
       <motion.div className="text-center mb-24" variants={fadeInVariants}>
         <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-          Game Library
+          {translations[language].title}
         </h2>
         <p className="text-xl text-gray-600">
-          Discover worlds we’ve crafted with passion, creativity, and a love for
-          play
+          {translations[language].subtitle}
         </p>
       </motion.div>
 
@@ -123,10 +75,10 @@ const Games = () => {
 
       <motion.div className="mb-24" variants={fadeInVariants} custom={1}>
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          SOSO Factory Original
+          {translations[language].originalGames.title}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {original.map((item, index) => (
+          {originalGames.map((item, index) => (
             <motion.div
               key={index}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
@@ -135,7 +87,7 @@ const Games = () => {
             >
               <div className="group relative aspect-square overflow-hidden">
                 <img
-                  src={item.imageUrl}
+                  src={gameImages[index]}
                   alt={item.name}
                   className="w-full h-full object-cover transition-transform group-hover:scale-105"
                 />
@@ -155,10 +107,10 @@ const Games = () => {
 
       <motion.div className="mb-24" variants={fadeInVariants} custom={2}>
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          SOSO Factory Publishing
+          {translations[language].publishedGames.title}{" "}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {published.map((item, index) => (
+          {publishedGames.map((item, index) => (
             <motion.div
               key={index}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
@@ -167,7 +119,7 @@ const Games = () => {
             >
               <div className="group relative aspect-square overflow-hidden">
                 <img
-                  src={item.imageUrl}
+                  src={gameImages[index + 8]}
                   alt={item.name}
                   className="w-full h-full object-cover transition-transform group-hover:scale-105"
                 />

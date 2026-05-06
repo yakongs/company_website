@@ -1,0 +1,92 @@
+{
+  "ko": {
+    "title": "회사 소개",
+    "subtitle": "저희는 사람들이 즐기고 오래 기억할 수 있는 게임을 만드는 개발자, 아티스트, 그리고 크리에이터들의 팀입니다.",
+    "description": "SOSO FACTORY는 단순히 화려한 것이 아니라 의미 있는 경험을 만드는 데 집중합니다. 아늑한 인디 게임부터 대담한 새로운 모험까지, 우리는 감정을 불러일으키고 탐험을 유도하며 플레이가 끝난 후에도 오래 기억에 남는 게임을 만듭니다. 우리가 만드는 모든 것은 협업과 호기심, 그리고 우리의 플레이어에 대한 깊은 존중을 바탕으로 이루어집니다.",
+    "values": {
+      "craft": {
+        "title": "정성을 담은 제작",
+        "desc": "우리는 훌륭한 게임은 세심한 관심과 애정에서 만들어진다고 믿습니다. 하나의 픽셀부터 코드 한 줄까지 모든 요소는 분명한 의도를 가지고 만들어집니다."
+      },
+      "ideas": {
+        "title": "대담한 아이디어",
+        "desc": "우리는 새로운 시도를 두려워하지 않습니다. 신선한 메커니즘과 창의적인 도전을 통해 더 흥미롭고 기억에 남는 게임을 만듭니다."
+      },
+      "community": {
+        "title": "커뮤니티 중심",
+        "desc": "플레이어의 목소리가 반영될 때 게임은 더 강해진다고 믿습니다. 우리는 커뮤니티와 함께 소통하고 배우며 성장합니다."
+      }
+    },
+    "history": {
+      "title": "연혁",
+      "events": {
+        "2025": "대표 모바일 게임, 30개국 아이폰 1위 달성",
+        "2024": "토론토 내 더 큰 창작 공간으로 스튜디오 이전",
+        "2023": "첫 자체 IP, PC 및 모바일 글로벌 출시",
+        "2022": "글로벌 플레이어 50만 명 돌파",
+        "2021": "첫 모바일 게임, App Store 및 Google Play 출시",
+        "2020": "소규모 인디 개발팀에 의해 SOSO Factory 설립"
+      }
+    }
+  },
+  "en": {
+    "title": "About Us",
+    "subtitle": "We're a close-knit group of developers, artists, and creators building games that people love to play and remember.",
+    "description": "At SOSO FACTORY, we create experiences that feel meaningful, not just flashy. From cozy indie games to bold new adventures, we craft games that spark emotion, invite exploration, and stay with you long after you play. Everything we make is driven by collaboration, curiosity, and a deep respect for our players.",
+    "values": {
+      "craft": {
+        "title": "Craft with Care",
+        "desc": "We believe great games are made with attention and love. Every detail, from a single pixel to a line of code, is created with purpose."
+      },
+      "ideas": {
+        "title": "Brave Ideas",
+        "desc": "We are not afraid to try new things. We embrace bold ideas, fresh mechanics, and creative risks that make games exciting and memorable."
+      },
+      "community": {
+        "title": "Community Matters",
+        "desc": "We believe games are stronger when players feel heard and connected. We listen, learn, and grow together with our community."
+      }
+    },
+    "history": {
+      "title": "History",
+      "events": {
+        "2025": "Flagship mobile title reaches No.1 on iPhone in 30 countries",
+        "2024": "Studio relocates to a larger creative space in Toronto",
+        "2023": "First original IP launches globally on PC and mobile",
+        "2022": "Global player base surpasses 500K+",
+        "2021": "First mobile game launches on the App Store and Google Play",
+        "2020": "SOSO Factory is founded by a small team of indie developers"
+      }
+    }
+  },
+  "fr": {
+    "title": "À propos de nous",
+    "subtitle": "Nous sommes une équipe soudée de développeurs, d’artistes et de créateurs qui conçoivent des jeux que les joueurs aiment découvrir et dont ils se souviennent.",
+    "description": "Chez SOSO FACTORY, nous créons des expériences qui ont du sens, au-delà du simple effet visuel. Des jeux indépendants chaleureux aux nouvelles aventures audacieuses, nous concevons des jeux qui suscitent des émotions, invitent à l’exploration et restent en mémoire longtemps après y avoir joué. Tout ce que nous créons repose sur la collaboration, la curiosité et un profond respect pour nos joueurs.",
+    "values": {
+      "craft": {
+        "title": "Créer avec soin",
+        "desc": "Nous pensons que les grands jeux naissent de l’attention portée aux détails et de la passion. Chaque détail, du moindre pixel à une ligne de code, est conçu avec intention."
+      },
+      "ideas": {
+        "title": "Des idées audacieuses",
+        "desc": "Nous n’avons pas peur d’essayer de nouvelles choses. Nous accueillons les idées ambitieuses, les mécaniques innovantes et les prises de risques créatives qui rendent les jeux captivants et mémorables."
+      },
+      "community": {
+        "title": "La communauté compte",
+        "desc": "Nous pensons que les jeux sont plus forts lorsque les joueurs se sentent écoutés et connectés. Nous écoutons, apprenons et grandissons avec notre communauté."
+      }
+    },
+    "history": {
+      "title": "Historique",
+      "events": {
+        "2025": "Notre titre mobile phare atteint la 1re place sur iPhone dans 30 pays",
+        "2024": "Le studio déménage dans un espace créatif plus grand à Toronto",
+        "2023": "Notre première propriété intellectuelle originale est lancée mondialement sur PC et mobile",
+        "2022": "Notre base mondiale de joueurs dépasse les 500 000",
+        "2021": "Notre premier jeu mobile est lancé sur l’App Store et Google Play",
+        "2020": "SOSO Factory est fondé par une petite équipe de développeurs indépendants"
+      }
+    }
+  }
+}

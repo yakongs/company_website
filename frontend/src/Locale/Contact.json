@@ -1,0 +1,125 @@
+{
+  "ko": {
+    "title": "문의하기",
+    "subtitle": "궁금한 점이 있거나, 프로젝트를 논의하고 싶거나, 단순히 연락을 원하시나요?",
+    "subtitle2": "저희 팀은 언제나 여러분의 이야기를 기다리고 있습니다!",
+    "subtitle3": "협업, 파트너십, 미디어 문의, 또는 커리어 관련 문의까지 무엇이든 편하게 연락 주세요.",
+    "form": {
+      "name": "이름",
+      "email": "이메일",
+      "subject": "제목",
+      "message": "내용",
+      "submit": "보내기",
+      "placeholders": {
+        "name": "홍길동",
+        "email": "john.doe@example.com",
+        "subject": "문의 내용을 간단히 작성해 주세요",
+        "message": "프로젝트, 아이디어 또는 궁금한 점을 자유롭게 작성해 주세요"
+      }
+    },
+    "contact_info": {
+      "title": "연락처 정보",
+      "phone": {
+        "title": "전화",
+        "info": "+1 437-599-3976",
+        "subInfo": "오전 9시 – 오후 5시"
+      },
+      "email": {
+        "title": "이메일",
+        "info": "support@example.com",
+        "subInfo": "24시간 이용 가능"
+      },
+      "location": {
+        "title": "위치",
+        "info": "5650 Yonge St",
+        "subInfo": "캐나다 온타리오 토론토 M2M 4H5"
+      }
+    },
+    "alerts": {
+      "success": "문의가 정상적으로 접수되었습니다.",
+      "error": "문의 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요."
+    }
+  },
+  "en": {
+    "title": "Contact Us",
+    "subtitle": "Have a question, a project in mind, or just want to connect with us?",
+    "subtitle2": "Our team is always happy to hear from you!",
+    "subtitle3": "Whether it's about a collaboration, a partnership, a media inquiry, or a professional opportunity, we're here to listen.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "SEND",
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "subject": "Briefly describe your inquiry",
+        "message": "Tell us about your project, idea, or any questions you have"
+      }
+    },
+    "contact_info": {
+      "title": "Contact Information",
+      "phone": {
+        "title": "Phone",
+        "info": "+1 437-599-3976",
+        "subInfo": "9:00 AM – 5:00 PM"
+      },
+      "email": {
+        "title": "Email",
+        "info": "support@example.com",
+        "subInfo": "Available 24/7"
+      },
+      "location": {
+        "title": "Location",
+        "info": "5650 Yonge St",
+        "subInfo": "Toronto, ON, M2M 4H5"
+      }
+    },
+    "alerts": {
+      "success": "Your message has been received.",
+      "error": "Something went wrong while submitting your inquiry. Please try again later."
+    }
+  },
+  "fr": {
+    "title": "Nous contacter",
+    "subtitle": "Vous avez une question, un projet en tête ou vous souhaitez simplement échanger avec nous ?",
+    "subtitle2": "Notre équipe sera toujours ravie de vous lire !",
+    "subtitle3": "Qu’il s’agisse d’une collaboration, d’un partenariat, d’une demande média ou d’une opportunité professionnelle, nous sommes à votre écoute.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "submit": "ENVOYER",
+      "placeholders": {
+        "name": "Jean Dupont",
+        "email": "jean.dupont@example.com",
+        "subject": "Décrivez brièvement votre demande",
+        "message": "Parlez-nous de votre projet, de votre idée ou de vos questions"
+      }
+    },
+    "contact_info": {
+      "title": "Informations de contact",
+      "phone": {
+        "title": "Téléphone",
+        "info": "+1 437-599-3976",
+        "subInfo": "9 h 00 – 17 h 00"
+      },
+      "email": {
+        "title": "Email",
+        "info": "support@example.com",
+        "subInfo": "Disponible 24/7"
+      },
+      "location": {
+        "title": "Adresse",
+        "info": "5650 Yonge St",
+        "subInfo": "Toronto, ON, M2M 4H5"
+      }
+    },
+    "alerts": {
+      "success": "Votre message a bien été reçu.",
+      "error": "Une erreur est survenue lors de l’envoi de votre demande. Veuillez réessayer plus tard."
+    }
+  }
+}

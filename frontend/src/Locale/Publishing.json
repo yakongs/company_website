@@ -1,0 +1,221 @@
+{
+  "ko": {
+    "title": "퍼블리싱",
+    "subTitle": "훌륭한 게임을 만드세요. 나머지는 저희가 맡겠습니다.",
+    "list": [
+      {
+        "title": "런칭 및 라이브 운영",
+        "description": "게임 출시부터 라이브 운영까지 전 과정을 관리합니다.",
+        "icon": "🎮"
+      },
+      {
+        "title": "클라우드 서비스",
+        "description": "안정적이고 확장 가능한 클라우드 인프라를 구축하고 운영합니다.",
+        "icon": "☁️"
+      },
+      {
+        "title": "보안 솔루션",
+        "description": "최신 보안 기술을 적용하여 안전한 시스템을 구축합니다.",
+        "icon": "🔒"
+      },
+      {
+        "title": "퍼블리싱 전략 컨설팅",
+        "description": "장기적인 성공을 위한 전략적 컨설팅을 제공합니다.",
+        "icon": "📊"
+      }
+    ],
+    "whyUs": {
+      "title": "왜 SOSO FACTORY 인가요?",
+      "reasons": [
+        {
+          "title": "5년 이상의 경험",
+          "description": "다양한 장르의 게임 프로젝트 경험 보유"
+        },
+        {
+          "title": "전문가 팀",
+          "description": "숙련된 개발자와 퍼블리싱 전문가로 구성된 팀"
+        },
+        {
+          "title": "24/7 지원",
+          "description": "라이브 운영과 긴급 상황을 위한 상시 지원"
+        }
+      ]
+    },
+    "process": {
+      "title": "퍼블리싱 프로세스",
+      "steps": [
+        {
+          "step": "01",
+          "title": "프로젝트 방향 설정",
+          "desc": "게임의 비전, 타겟 시장, 출시 목표를 함께 정립합니다."
+        },
+        {
+          "step": "02",
+          "title": "출시 전략 수립",
+          "desc": "플랫폼, 일정, 라이브 운영을 포함한 출시 전략을 설계합니다."
+        },
+        {
+          "step": "03",
+          "title": "출시 및 라이브 운영",
+          "desc": "출시를 실행하고 안정적인 라이브 운영을 지원합니다."
+        },
+        {
+          "step": "04",
+          "title": "성장 및 최적화",
+          "desc": "라이브 데이터를 기반으로 개선과 장기적인 성장을 이끌어냅니다."
+        }
+      ]
+    },
+    "cta": {
+      "title": "프로젝트를 시작할 준비가 되셨나요?",
+      "subtitle": "퍼블리싱 전문가와 함께 다음 단계를 준비하세요.",
+      "button": "문의하기"
+    }
+  },
+  "en": {
+    "title": "Publishing",
+    "subTitle": "Build great games. We take care of the rest.",
+    "list": [
+      {
+        "title": "Launch & Live Operations",
+        "description": "We manage game launches and live operations end to end.",
+        "icon": "🎮"
+      },
+      {
+        "title": "Cloud Services",
+        "description": "We build and operate reliable, scalable cloud infrastructure.",
+        "icon": "☁️"
+      },
+      {
+        "title": "Security Solutions",
+        "description": "We implement secure systems using the latest security technologies.",
+        "icon": "🔒"
+      },
+      {
+        "title": "Publishing Strategy Consulting",
+        "description": "We deliver strategic consulting to help shape long-term success.",
+        "icon": "📊"
+      }
+    ],
+    "whyUs": {
+      "title": "Why Choose Us?",
+      "reasons": [
+        {
+          "title": "5+ Years of Experience",
+          "description": "Experience across projects in diverse game genres"
+        },
+        {
+          "title": "Expert Team",
+          "description": "A team of experienced developers and publishing professionals"
+        },
+        {
+          "title": "24/7 Support",
+          "description": "Always on support for live operations and critical issues"
+        }
+      ]
+    },
+    "process": {
+      "title": "Publishing Process",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Project Alignment",
+          "desc": "Aligning on the game's vision, target market, and launch goals together."
+        },
+        {
+          "step": "02",
+          "title": "Launch Strategy",
+          "desc": "Designing a launch strategy covering platforms, timelines, and live operations."
+        },
+        {
+          "step": "03",
+          "title": "Launch & Live Ops",
+          "desc": "Executing the launch and supporting stable live operations."
+        },
+        {
+          "step": "04",
+          "title": "Growth & Optimization",
+          "desc": "Using live data to guide improvements and long term growth."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "subtitle": "Partner with publishing experts to plan your next steps.",
+      "button": "CONTACT US"
+    }
+  },
+  "fr": {
+    "title": "Édition",
+    "subTitle": "Créez de grands jeux. Nous nous occupons du reste.",
+    "list": [
+      {
+        "title": "Lancement et opérations live",
+        "description": "Nous gérons les lancements de jeux et les opérations live de bout en bout.",
+        "icon": "🎮"
+      },
+      {
+        "title": "Services cloud",
+        "description": "Nous concevons et exploitons une infrastructure cloud fiable et évolutive.",
+        "icon": "☁️"
+      },
+      {
+        "title": "Solutions de sécurité",
+        "description": "Nous mettons en place des systèmes sécurisés grâce aux technologies de sécurité les plus récentes.",
+        "icon": "🔒"
+      },
+      {
+        "title": "Conseil en stratégie d’édition",
+        "description": "Nous proposons un accompagnement stratégique pour contribuer à votre réussite à long terme.",
+        "icon": "📊"
+      }
+    ],
+    "whyUs": {
+      "title": "Pourquoi nous choisir ?",
+      "reasons": [
+        {
+          "title": "Plus de 5 ans d’expérience",
+          "description": "Une expérience acquise sur des projets de genres variés"
+        },
+        {
+          "title": "Une équipe d’experts",
+          "description": "Une équipe composée de développeurs expérimentés et de professionnels de l’édition"
+        },
+        {
+          "title": "Support 24/7",
+          "description": "Un support permanent pour les opérations live et les situations critiques"
+        }
+      ]
+    },
+    "process": {
+      "title": "Processus d’édition",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Alignement du projet",
+          "desc": "Nous définissons ensemble la vision du jeu, le marché cible et les objectifs de lancement."
+        },
+        {
+          "step": "02",
+          "title": "Stratégie de lancement",
+          "desc": "Nous concevons une stratégie de lancement couvrant les plateformes, le calendrier et les opérations live."
+        },
+        {
+          "step": "03",
+          "title": "Lancement et live ops",
+          "desc": "Nous exécutons le lancement et assurons des opérations live stables."
+        },
+        {
+          "step": "04",
+          "title": "Croissance et optimisation",
+          "desc": "Nous utilisons les données live pour guider les améliorations et la croissance à long terme."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à lancer votre projet ?",
+      "subtitle": "Collaborez avec des experts de l’édition pour planifier vos prochaines étapes.",
+      "button": "NOUS CONTACTER"
+    }
+  }
+}

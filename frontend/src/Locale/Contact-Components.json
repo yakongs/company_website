@@ -1,0 +1,32 @@
+{
+  "ko": {
+    "title": "문의하기",
+    "subtitle": "게임 관련 문의나 지원 요청이 있으신가요?",
+    "subtitle2": "편하게 연락해 주세요!",
+    "contactMethods": {
+      "EmailSubInfo": "24시간 이용 가능",
+      "locationSubInfo": "캐나다 온타리오 토론토 M2M 4H5"
+    },
+    "button": "문의하기"
+  },
+  "en": {
+    "title": "Contact",
+    "subtitle": "Do you have a support request or question regarding one of our games?",
+    "subtitle2": "Please get in touch!",
+    "contactMethods": {
+      "EmailSubInfo": "Available 24/7",
+      "locationSubInfo": "Toronto, ON, M2M 4H5"
+    },
+    "button": "CONTACT US"
+  },
+  "fr": {
+    "title": "Contact",
+    "subtitle": "Avez-vous une demande d’assistance ou une question concernant l’un de nos jeux ?",
+    "subtitle2": "N’hésitez pas à nous contacter !",
+    "contactMethods": {
+      "EmailSubInfo": "Disponible 24/7",
+      "locationSubInfo": "Toronto, ON, M2M 4H5"
+    },
+    "button": "NOUS CONTACTER"
+  }
+}

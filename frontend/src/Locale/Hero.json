@@ -1,0 +1,80 @@
+{
+  "ko": {
+    "description": "귀여운 손님들을 맞이하고, 주방을 업그레이드하며, 작은 카페를 마을에서 가장 인기 있는 명소로 만들어보세요.",
+    "buttons": {
+      "download": "다운로드",
+      "learnMore": "더 알아보기"
+    },
+    "image": "바운시 비스트로 게임 이미지",
+    "stats": {
+      "installations": {
+        "number": "500K+",
+        "label": "전 세계 플레이어"
+      },
+      "satisfaction": {
+        "number": "4.8★",
+        "label": "평균 평점"
+      },
+      "experience": {
+        "number": "12+",
+        "label": "출시한 게임 수"
+      },
+      "support": {
+        "number": "24/7",
+        "label": "플레이어 지원"
+      }
+    }
+  },
+  "en": {
+    "description": "Serve adorable customers, upgrade your kitchen, and turn your tiny cafe into the most popular spot in town.",
+    "buttons": {
+      "download": "DOWNLOAD",
+      "learnMore": "Learn More"
+    },
+    "image": "Bouncy Bistro game key art",
+    "stats": {
+      "installations": {
+        "number": "500K+",
+        "label": "Players Worldwide"
+      },
+      "satisfaction": {
+        "number": "4.8★",
+        "label": "Average Rating"
+      },
+      "experience": {
+        "number": "12+",
+        "label": "Games Released"
+      },
+      "support": {
+        "number": "24/7",
+        "label": "Player Support"
+      }
+    }
+  },
+  "fr": {
+    "description": "Servez d’adorables clients, améliorez votre cuisine et transformez votre petit café en l’endroit le plus populaire de la ville.",
+    "buttons": {
+      "download": "TÉLÉCHARGER",
+      "learnMore": "En savoir plus"
+    },
+    "image": "Visuel principal du jeu Bouncy Bistro",
+    "stats": {
+      "installations": {
+        "number": "500K+",
+        "label": "Joueurs dans le monde"
+      },
+      "satisfaction": {
+        "number": "4.8★",
+        "label": "Note moyenne"
+      },
+      "experience": {
+        "number": "12+",
+        "label": "Jeux sortis"
+      },
+      "support": {
+        "number": "24/7",
+        "label": "Support joueurs"
+      }
+    }
+  }
+}

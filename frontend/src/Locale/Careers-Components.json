@@ -1,0 +1,35 @@
+{
+  "ko": {
+    "title": "채용",
+    "viewAll": "전체 보기",
+    "loading": "불러오는 중...",
+    "noRecentPosts": "최근 게시물이 없습니다.",
+    "postInfo": {
+      "number": "No.",
+      "views": "조회수",
+      "files": "첨부파일"
+    }
+  },
+  "en": {
+    "title": "Careers",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "noRecentPosts": "No recent posts.",
+    "postInfo": {
+      "number": "No.",
+      "views": "Views",
+      "files": "Attachments"
+    }
+  },
+  "fr": {
+    "title": "Carrières",
+    "viewAll": "Voir tout",
+    "loading": "Chargement...",
+    "noRecentPosts": "Aucune publication récente.",
+    "postInfo": {
+      "number": "N°",
+      "views": "Vues",
+      "files": "Pièces jointes"
+    }
+  }
+}

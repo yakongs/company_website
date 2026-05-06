@@ -1,0 +1,188 @@
+{
+  "ko": {
+    "title": "게임 라이브러리",
+    "subtitle": "열정과 창의성, 그리고 플레이에 대한 사랑으로 만들어낸 세계를 만나보세요",
+    "originalGames": {
+      "title": "SOSO Factory 오리지널",
+      "games": [
+        {
+          "name": "바운시 비스트로",
+          "genre": "캐주얼 / 타임 매니지먼트"
+        },
+        {
+          "name": "네뷸라: 운명의 균열",
+          "genre": "액션 RPG / SF"
+        },
+        {
+          "name": "타이니 디펜더스",
+          "genre": "타워 디펜스"
+        },
+        {
+          "name": "아이언클래드 택틱스",
+          "genre": "전략 / 턴제"
+        },
+        {
+          "name": "스카이바운드 레이서즈",
+          "genre": "아케이드 레이싱"
+        },
+        {
+          "name": "로스트 시그널",
+          "genre": "퍼즐 / 미스터리"
+        },
+        {
+          "name": "몬스터 메일 익스프레스",
+          "genre": "캐주얼 어드벤처"
+        },
+        {
+          "name": "페이퍼 코핀",
+          "genre": "2D 심리 공포"
+        }
+      ]
+    },
+    "publishedGames": {
+      "title": "퍼블리싱 게임",
+      "games": [
+        {
+          "name": "비트윈 더 라인즈",
+          "genre": "연애 시뮬레이션 / 내러티브"
+        },
+        {
+          "name": "널 프로토콜",
+          "genre": "3D 잠입 / SF"
+        },
+        {
+          "name": "애쉬즈 오브 더 딥",
+          "genre": "3D RPG / 다크 판타지"
+        },
+        {
+          "name": "러스트 에덴",
+          "genre": "3D 탐험 / 포스트 아포칼립스"
+        }
+      ]
+    }
+  },
+  "en": {
+    "title": "Game Library",
+    "subtitle": "Discover worlds we've crafted with passion, creativity, and a love for play.",
+    "originalGames": {
+      "title": "SOSO Factory Original",
+      "games": [
+        {
+          "name": "Bouncy Bistro",
+          "genre": "Casual / Time Management"
+        },
+        {
+          "name": "NEBULA: Rift of Fate",
+          "genre": "Action RPG / Sci-Fi"
+        },
+        {
+          "name": "Tiny Defenders",
+          "genre": "Tower Defense"
+        },
+        {
+          "name": "Ironclad Tactics",
+          "genre": "Strategy / Turn-Based"
+        },
+        {
+          "name": "Skybound Racers",
+          "genre": "Arcade Racing"
+        },
+        {
+          "name": "Lost Signals",
+          "genre": "Puzzle / Mystery"
+        },
+        {
+          "name": "Monster Mail Express",
+          "genre": "Casual Adventure"
+        },
+        {
+          "name": "Paper Coffin",
+          "genre": "2D Psychological Horror"
+        }
+      ]
+    },
+    "publishedGames": {
+      "title": "Published Games",
+      "games": [
+        {
+          "name": "Between the Lines",
+          "genre": "Romance Simulation / Narrative"
+        },
+        {
+          "name": "Null Protocol",
+          "genre": "3D Stealth / Sci-Fi"
+        },
+        {
+          "name": "Ashes of the Deep",
+          "genre": "3D RPG / Dark Fantasy"
+        },
+        {
+          "name": "Rust Eden",
+          "genre": "3D Exploration / Post-Apocalyptic"
+        }
+      ]
+    }
+  },
+  "fr": {
+    "title": "Bibliothèque de jeux",
+    "subtitle": "Découvrez les mondes que nous avons créés avec passion, créativité et amour du jeu.",
+    "originalGames": {
+      "title": "Créations originales de SOSO Factory",
+      "games": [
+        {
+          "name": "Bouncy Bistro",
+          "genre": "Casual / Gestion du temps"
+        },
+        {
+          "name": "NEBULA: Rift of Fate",
+          "genre": "Action RPG / Science-fiction"
+        },
+        {
+          "name": "Tiny Defenders",
+          "genre": "Tower defense"
+        },
+        {
+          "name": "Ironclad Tactics",
+          "genre": "Stratégie / Tour par tour"
+        },
+        {
+          "name": "Skybound Racers",
+          "genre": "Course arcade"
+        },
+        {
+          "name": "Lost Signals",
+          "genre": "Puzzle / Mystère"
+        },
+        {
+          "name": "Monster Mail Express",
+          "genre": "Aventure casual"
+        },
+        {
+          "name": "Paper Coffin",
+          "genre": "Horreur psychologique en 2D"
+        }
+      ]
+    },
+    "publishedGames": {
+      "title": "Jeux publiés",
+      "games": [
+        {
+          "name": "Between the Lines",
+          "genre": "Simulation de romance / Narratif"
+        },
+        {
+          "name": "Null Protocol",
+          "genre": "Infiltration 3D / Science-fiction"
+        },
+        {
+          "name": "Ashes of the Deep",
+          "genre": "RPG 3D / Dark fantasy"
+        },
+        {
+          "name": "Rust Eden",
+          "genre": "Exploration 3D / Post-apocalyptique"
+        }
+      ]
+    }
+  }
+}

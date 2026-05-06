@@ -129,7 +129,7 @@ const SinglePost = () => {
         {post.fileUrl && post.fileUrl.length > 0 && (
           <Box sx={{ mt: 4, p: 2, bgcolor: "grey.50", borderRadius: 1 }}>
             <Typography variant="subtitle2" gutterBottom>
-              Attachment
+              Attachments
             </Typography>
             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
               {post.fileUrl.map((file, index) => (

@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
+import translations from "../../Locale/Navbar.json";
 
 const menuItems = [
-  { path: "/", label: "HOME" },
-  { path: "/about", label: "ABOUT" },
-  { path: "/games", label: "GAMES" },
-  { path: "/careers", label: "CAREERS" },
-  { path: "/publishing", label: "PUBLISHING" },
-  { path: "/contact", label: "CONTACT" },
+  { path: "/", key: "home" },
+  { path: "/about", key: "about" },
+  { path: "/games", key: "games" },
+  { path: "/careers", key: "careers" },
+  { path: "/publishing", key: "publishing" },
+  { path: "/contact", key: "contact" },
 ];
 
-const MenuItem = ({ path, label, onClick }) => (
+const MenuItem = ({ path, label, onClick = () => {} }) => (
   <li>
     <Link
       to={path}
       className="hover:text-rose-700 transition duration-300"
-      onClick={onClick}
+      onClick={() => {
+        onClick();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
     >
       {label}
     </Link>
@@ -24,8 +28,15 @@ const MenuItem = ({ path, label, onClick }) => (
 );
 
 const Navbar = () => {
-  const [language, setLanguage] = useState("en");
   const [isOpen, setIsOpen] = useState(false);
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    localStorage.setItem("language", language);
+    window.dispatchEvent(new Event("languageChange"));
+  }, [language]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -33,13 +44,25 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full bg-white text-black p-4 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-xl lg:text-2xl font-bold lg:ml-12 lg:mr-8">
-          <a href="/">SOSO FACTORY</a>
+          <Link
+            to="/"
+            onClick={() => {
+              setIsOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            SOSO FACTORY
+          </Link>
         </h1>
 
         <div className="hidden lg:flex flex-1 justify-center">
           <ul className="flex gap-8 text-lg">
             {menuItems.map((item) => (
-              <MenuItem key={item.path} {...item} />
+              <MenuItem
+                key={item.path}
+                path={item.path}
+                label={translations[language].menu[item.key]}
+              />
             ))}
           </ul>
         </div>
@@ -49,14 +72,15 @@ const Navbar = () => {
           onChange={(e) => setLanguage(e.target.value)}
           className="hidden lg:block px-3 ml-8 border rounded-md bg-white hover:border-rose-700 transition duration-300"
         >
-          <option value="en">English</option>
-          <option value="ko">한국어</option>
+          <option value="en">{translations.en.language}</option>
+          <option value="fr">{translations.fr.language}</option>
+          <option value="ko">{translations.ko.language}</option>
         </select>
 
         <button
           className="lg:hidden text-2xl"
           onClick={toggleMenu}
-          aria-label="Menu"
+          aria-label={translations[language].buttons.menu}
         >
           {isOpen ? <HiX /> : <HiMenu />}
         </button>
@@ -69,7 +93,7 @@ const Navbar = () => {
           <button
             className="text-2xl mb-8 float-right"
             onClick={toggleMenu}
-            aria-label="close"
+            aria-label={translations[language].buttons.close}
           >
             <HiX />
           </button>
@@ -77,11 +101,9 @@ const Navbar = () => {
             {menuItems.map((item) => (
               <MenuItem
                 key={item.path}
-                {...item}
-                onClick={() => {
-                  setIsOpen(false);
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
+                path={item.path}
+                label={translations[language].menu[item.key]}
+                onClick={() => setIsOpen(false)}
               />
             ))}
           </ul>
@@ -90,8 +112,9 @@ const Navbar = () => {
             onChange={(e) => setLanguage(e.target.value)}
             className="mt-6 w-full px-3 py-1 border rounded-md bg-white hover:border-rose-500 transition duration-300"
           >
-            <option value="en">English</option>
-            <option value="ko">한국어</option>
+            <option value="en">{translations.en.language}</option>
+            <option value="fr">{translations.fr.language}</option>
+            <option value="ko">{translations.ko.language}</option>
           </select>
         </div>
       </div>

@@ -1,0 +1,68 @@
+{
+  "ko": {
+    "title": "채용",
+    "subtitle": "SOSO Factory는 재능 있는 팀들이 모여 훌륭한 게임을 만들어가는 곳입니다!",
+    "search": {
+      "title": "제목",
+      "placeholder": "검색어를 입력하세요",
+      "dateStart": "작성일 시작:",
+      "dateEnd": "작성일 끝:",
+      "itemsPerPage": "페이지당 표시:"
+    },
+    "table": {
+      "number": "번호",
+      "title": "제목",
+      "date": "작성일",
+      "views": "조회수"
+    },
+    "pagination": {
+      "prev": "이전",
+      "next": "다음"
+    },
+    "noPosts": "게시글이 없습니다."
+  },
+  "en": {
+    "title": "Careers",
+    "subtitle": "SOSO Factory, where talented teams come together to create great games!",
+    "search": {
+      "title": "Title",
+      "placeholder": "Search",
+      "dateStart": "Start Date:",
+      "dateEnd": "End Date:",
+      "itemsPerPage": "Items per page:"
+    },
+    "table": {
+      "number": "No.",
+      "title": "Title",
+      "date": "Date",
+      "views": "Views"
+    },
+    "pagination": {
+      "prev": "Prev",
+      "next": "Next"
+    },
+    "noPosts": "No posts found."
+  },
+  "fr": {
+    "title": "Carrières",
+    "subtitle": "SOSO Factory, là où des équipes talentueuses se réunissent pour créer de grands jeux !",
+    "search": {
+      "title": "Titre",
+      "placeholder": "Rechercher",
+      "dateStart": "Date de début :",
+      "dateEnd": "Date de fin :",
+      "itemsPerPage": "Éléments par page :"
+    },
+    "table": {
+      "number": "N°",
+      "title": "Titre",
+      "date": "Date",
+      "views": "Vues"
+    },
+    "pagination": {
+      "prev": "Préc.",
+      "next": "Suiv."
+    },
+    "noPosts": "Aucune publication trouvée."
+  }
+}

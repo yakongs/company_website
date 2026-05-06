@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import translations from "../../Locale/Contact.json";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,21 @@ const Contact = () => {
     message: "",
     status: "Pending",
   });
+
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en",
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setLanguage(localStorage.getItem("language") || "en");
+    };
+
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+    };
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -27,7 +43,7 @@ const Contact = () => {
       );
 
       if (response.status === 201) {
-        alert("Your message has been received.");
+        alert(translations[language].alerts.success);
         setFormData({
           name: "",
           email: "",
@@ -38,9 +54,7 @@ const Contact = () => {
       }
     } catch (error) {
       console.log("Failed to submit contact form:", error);
-      alert(
-        "Something went wrong while submitting your inquiry. Please try again later.",
-      );
+      alert(translations[language].alerts.error);
     }
   };
 
@@ -70,15 +84,14 @@ const Contact = () => {
           custom={1}
         >
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-            Contact Us
+            {translations[language].title}
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Have a question, a project in mind, or just want to connect with us?
+            {translations[language].subtitle}
             <br />
-            Our team is always happy to hear from you!
+            {translations[language].subtitle2}
             <br /> <br />
-            Whether it’s about a collaboration, a partnership, a media inquiry,
-            or a professional opportunity, we’re here to listen.
+            {translations[language].subtitle3}
           </p>
         </motion.div>
 
@@ -96,13 +109,13 @@ const Contact = () => {
               <div className="space-y-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Name
+                    {translations[language].form.name}
                   </label>
                   <input
                     type="text"
                     name="name"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300"
-                    placeholder="John Doe"
+                    placeholder={translations[language].form.placeholders.name}
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -110,13 +123,13 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Email
+                    {translations[language].form.email}
                   </label>
                   <input
                     type="email"
                     name="email"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300"
-                    placeholder="john.doe@example.com"
+                    placeholder={translations[language].form.placeholders.email}
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -124,13 +137,15 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Subject
+                    {translations[language].form.subject}
                   </label>
                   <input
                     type="text"
                     name="subject"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300"
-                    placeholder="Briefly describe your inquiry"
+                    placeholder={
+                      translations[language].form.placeholders.subject
+                    }
                     required
                     value={formData.subject}
                     onChange={handleChange}
@@ -138,12 +153,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Message
+                    {translations[language].form.message}
                   </label>
                   <textarea
                     name="message"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-rose-200 focus:ring-2 focus:ring-rose-200 transition-colors duration-300 h-40"
-                    placeholder="Tell us about your project, idea, or any questions you have..."
+                    placeholder={
+                      translations[language].form.placeholders.message
+                    }
                     required
                     value={formData.message}
                     onChange={handleChange}
@@ -153,7 +170,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-rose-700 text-white py-4 rounded-lg font-medium hover:bg-rose-800 transition-colors duration-300"
                 >
-                  SEND
+                  {translations[language].form.submit}
                 </button>
               </div>
             </form>
@@ -166,24 +183,25 @@ const Contact = () => {
           >
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Contact Information
+                {translations[language].contact_info.title}
               </h3>
               <div className="space-y-6">
                 {[
                   {
-                    title: "Phone",
-                    info: "+1 437-599-3976",
-                    subInfo: "9:00 AM – 5:00 PM",
+                    title: translations[language].contact_info.phone.title,
+                    info: translations[language].contact_info.phone.info,
+                    subInfo: translations[language].contact_info.phone.subInfo,
                   },
                   {
-                    title: "Email",
-                    info: "support@example.com",
-                    subInfo: "Available 24/7",
+                    title: translations[language].contact_info.email.title,
+                    info: translations[language].contact_info.email.info,
+                    subInfo: translations[language].contact_info.email.subInfo,
                   },
                   {
-                    title: "Location",
-                    info: "5650 Yonge St",
-                    subInfo: "Toronto, ON, M2M 4H5",
+                    title: translations[language].contact_info.location.title,
+                    info: translations[language].contact_info.location.info,
+                    subInfo:
+                      translations[language].contact_info.location.subInfo,
                   },
                 ].map((item, index) => (
                   <div key={index} className="flex items-start">
