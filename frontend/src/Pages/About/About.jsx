@@ -122,7 +122,7 @@ const About = () => {
                 <div className="w-1/2 text-center">
                   <div className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
                     <h3 className="text-2xl mb-3 text-rose-800">{year}</h3>
-                    <p className="text-gray-700 text-lg">{event}</p>
+                    <p className="text-gray-700 text-lg font-light">{event}</p>
                   </div>
                 </div>
                 <div className="w-4 h-4 bg-rose-900 rounded-full"></div>

@@ -144,7 +144,7 @@ const Careers = () => {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-800 hover:text-rose-600 transition-colors duration-300">
+                      <h3 className="text-xl text-gray-800 hover:text-rose-600 transition-colors duration-300">
                         {post.title}
                       </h3>
                       <div className="mt-2 text-gray-500">

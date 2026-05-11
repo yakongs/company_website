@@ -12,7 +12,7 @@
       "submit": "보내기",
       "placeholders": {
         "name": "홍길동",
-        "email": "john.doe@example.com",
+        "email": "hong123@example.com",
         "subject": "문의 내용을 간단히 작성해 주세요",
         "message": "프로젝트, 아이디어 또는 궁금한 점을 자유롭게 작성해 주세요"
       }

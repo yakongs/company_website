@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GameImage from "../../assets/BouncyBistro.jpg";
+import BackgroundImage from "../../assets/backgroundImage.jpg";
 import { motion } from "framer-motion";
 import translations from "../../Locale/Hero.json";
 
@@ -51,8 +52,12 @@ const Hero = () => {
   ];
 
   return (
-    <div className="relative min-h-[110vh] bg-gradient-to-b from-gray-50 to-white pb-0">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+    <div
+      className="relative min-h-[110vh] bg-cover bg-center bg-no-repeat pb-0"
+      style={{ backgroundImage: `url(${BackgroundImage})` }}
+    >
+      <div className="absolute inset-0 bg-white/60"></div>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="flex-1 text-center lg:text-left">
             <motion.h1
@@ -109,8 +114,7 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
             <motion.div

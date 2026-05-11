@@ -109,7 +109,10 @@ const Navbar = () => {
           </ul>
           <select
             value={language}
-            onChange={(e) => setLanguage(e.target.value)}
+            onChange={(e) => {
+              setLanguage(e.target.value);
+              setIsOpen(false);
+            }}
             className="mt-6 w-full px-3 py-1 border rounded-md bg-white hover:border-rose-500 transition duration-300"
           >
             <option value="en">{translations.en.language}</option>

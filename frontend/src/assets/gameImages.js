@@ -3,7 +3,7 @@ import gameImage2 from "./gameImage2.png";
 import gameImage3 from "./gameImage3.png";
 import gameImage4 from "./gameImage4.png";
 import gameImage5 from "./gameImage5.png";
-import gameImage6 from "./gameImage6.png";
+import gameImage6 from "./gameImage6.jpg";
 import gameImage7 from "./gameImage7.png";
 import gameImage8 from "./gameImage8.png";
 import gameImage9 from "./gameImage9.png";
