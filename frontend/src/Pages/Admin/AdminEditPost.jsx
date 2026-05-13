@@ -24,7 +24,7 @@ const AdminEditPost = () => {
     const fetchPost = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/post/${id}`,
+          `${import.meta.env.VITE_API_URL}/api/post/${id}`,
         );
 
         setFormData({
@@ -83,7 +83,7 @@ const AdminEditPost = () => {
           fileFormData.append("originalName", encodedFileName);
 
           const response = await axios.post(
-            "http://localhost:3000/api/upload/file",
+            `${import.meta.env.VITE_API_URL}/api/upload/file`,
             fileFormData,
             {
               withCredentials: true,
@@ -112,12 +112,16 @@ const AdminEditPost = () => {
         currentImages: currentImages,
       };
 
-      await axios.put(`http://localhost:3000/api/post/${id}`, postData, {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/post/${id}`,
+        postData,
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      });
+      );
 
       setShowUploadModal(false);
       navigate("/admin/posts");
@@ -262,7 +266,7 @@ const AdminEditPost = () => {
                     formData.append("image", blobInfo.blob());
 
                     const response = await axios.post(
-                      "http://localhost:3000/api/upload/image",
+                      `${import.meta.env.VITE_API_URL}/api/upload/image`,
                       formData,
                       {
                         withCredentials: true,

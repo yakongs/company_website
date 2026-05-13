@@ -54,7 +54,7 @@ const AdminCreatePost = () => {
           fileFormData.append("originalName", encodedFileName);
 
           const response = await axios.post(
-            "http://localhost:3000/api/upload/file",
+            `${import.meta.env.VITE_API_URL}/api/upload/file`,
             fileFormData,
             {
               withCredentials: true,
@@ -82,7 +82,7 @@ const AdminCreatePost = () => {
         fileUrl: uploadedFiles,
       };
 
-      await axios.post("http://localhost:3000/api/post", postData, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/post`, postData, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -225,7 +225,7 @@ const AdminCreatePost = () => {
                     formData.append("image", blobInfo.blob());
 
                     const response = await axios.post(
-                      "http://localhost:3000/api/upload/image",
+                      `${import.meta.env.VITE_API_URL}/api/upload/image`,
                       formData,
                       {
                         withCredentials: true,

@@ -45,7 +45,7 @@ const SinglePost = () => {
     const fetchPost = async () => {
       try {
         const postResponse = await axios.get(
-          `http://localhost:3000/api/post/${id}`,
+          `${import.meta.env.VITE_API_URL}/api/post/${id}`,
         );
         setPost(postResponse.data);
       } catch (error) {

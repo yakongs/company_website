@@ -18,9 +18,12 @@ const AdminContacts = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/contact", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/contact`,
+          {
+            withCredentials: true,
+          },
+        );
 
         setContacts(response.data);
       } catch (error) {
@@ -39,7 +42,7 @@ const AdminContacts = () => {
   const handleStatusUpdate = async (newStatus) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/contact/${selectedContact._id}`,
+        `${import.meta.env.VITE_API_URL}/api/contact/${selectedContact._id}`,
         { status: newStatus },
         { withCredentials: true },
       );
@@ -87,9 +90,12 @@ const AdminContacts = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:3000/api/contact/${id}`, {
-          withCredentials: true,
-        });
+        await axios.delete(
+          `${import.meta.env.VITE_API_URL}/api/contact/${id}`,
+          {
+            withCredentials: true,
+          },
+        );
 
         setContacts(contacts.filter((contact) => contact._id !== id));
         Swal.fire(

@@ -25,7 +25,9 @@ const Careers = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/post");
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/post`,
+        );
         setPosts(response.data.slice(0, 5));
       } catch (error) {
         console.log("Failed to fetch posts:", error);
