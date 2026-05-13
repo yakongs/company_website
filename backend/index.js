@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const userRoutes = require("./routes/user");
 const contactRoutes = require("./routes/contact");
@@ -14,7 +14,7 @@ const uploadRoutes = require("./routes/upload");
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", process.env.CLIENT_URL],
     credentials: true,
   }),
 );
@@ -38,5 +38,5 @@ mongoose
   .catch((error) => console.log("MongoDB connection error: ", error));
 
 app.listen(PORT, () => {
-  console.log("Server is running");
+  console.log(`Server is running on port ${PORT}`);
 });
